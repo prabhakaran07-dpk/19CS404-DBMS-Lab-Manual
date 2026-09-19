@@ -54,123 +54,236 @@ ON table1.column = table2.column;
 
 **Question 1**
 --
--- Paste Question 1 here
+<img width="1112" height="608" alt="image" src="https://github.com/user-attachments/assets/5a5dcc14-61d2-4c24-94b2-50f6b197b435" />
+
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT 
+    customer.cust_name AS "Customer Name", 
+    customer.city AS "city", 
+    salesman.name AS "Salesman", 
+    salesman.commission
+FROM 
+    customer
+JOIN 
+    salesman
+ON 
+    customer.salesman_id = salesman.salesman_id
+WHERE 
+    salesman.commission > 0.12;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="885" height="467" alt="image" src="https://github.com/user-attachments/assets/1c118a9c-c6bc-44b8-ab8c-ac964554abb6" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="1333" height="448" alt="image" src="https://github.com/user-attachments/assets/7fcb9ddd-4712-455d-a003-7db11efc3a6a" />
+
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT 
+    patients.date_of_birth, 
+    appointments.*
+FROM 
+    patients
+JOIN 
+    appointments
+ON 
+    patients.patient_id = appointments.patient_id
+WHERE 
+    patients.first_name = 'Alice';
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1143" height="220" alt="image" src="https://github.com/user-attachments/assets/a929b498-cfc0-4d44-943f-9eca0c065d1a" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="890" height="655" alt="image" src="https://github.com/user-attachments/assets/c7df1ef8-bd68-4cd9-9ce4-b4e53b76f6a3" />
+
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT 
+    orders.ord_no, 
+    orders.ord_date, 
+    orders.purch_amt, 
+    customer.cust_name AS "Customer Name", 
+    customer.grade, 
+    salesman.name AS "Salesman", 
+    salesman.commission
+FROM 
+    orders
+JOIN 
+    customer ON orders.customer_id = customer.customer_id
+JOIN 
+    salesman ON orders.salesman_id = salesman.salesman_id;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1318" height="761" alt="image" src="https://github.com/user-attachments/assets/0bdd1483-7bbf-425b-a8ad-5c18459d527b" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+<img width="1215" height="385" alt="image" src="https://github.com/user-attachments/assets/19590976-5e50-4e3e-8f7d-fdc5bfd48022" />
+
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT 
+    customer.cust_name, 
+    customer.city, 
+    customer.grade, 
+    salesman.name AS "Salesman", 
+    salesman.city AS "city"
+FROM 
+    customer
+JOIN 
+    salesman ON customer.salesman_id = salesman.salesman_id
+WHERE 
+    customer.grade < 300
+ORDER BY 
+    customer.customer_id ASC;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1026" height="462" alt="image" src="https://github.com/user-attachments/assets/c26b3bf2-cc20-49b1-afdc-ab9744142bfc" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+<img width="1297" height="273" alt="image" src="https://github.com/user-attachments/assets/fd9f1ed3-c0c8-47af-a87f-f4fddef4e5c9" />
+
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT 
+    s.name
+FROM 
+    salesman AS s
+LEFT JOIN 
+    customer AS c ON s.salesman_id = c.salesman_id
+WHERE 
+    c.city = 'London';
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="270" height="267" alt="image" src="https://github.com/user-attachments/assets/a238ea57-f265-4d11-b4cb-9327695e212c" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+<img width="971" height="259" alt="image" src="https://github.com/user-attachments/assets/c94e9c9e-e849-4671-abaa-d57e6dac9f4c" />
+
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT 
+    c.cust_name
+FROM 
+    customer AS c
+LEFT JOIN 
+    orders AS o ON c.customer_id = o.customer_id;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="274" height="759" alt="image" src="https://github.com/user-attachments/assets/4db3d200-bc7c-4d25-bbcc-f1a0fbfeef66" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="1560" height="360" alt="image" src="https://github.com/user-attachments/assets/c053a535-41ba-49de-a501-24aa67d274e6" />
 
 ```sql
--- Paste your SQL code below for Question 7
+SELECT 
+    p.first_name AS patient_name, 
+    t.*
+FROM 
+    patients AS p
+INNER JOIN 
+    test_results AS t ON p.patient_id = t.patient_id;
 ```
 
 **Output:**
+<img width="1370" height="367" alt="image" src="https://github.com/user-attachments/assets/6b2ad7e2-d2e2-49a0-8f7b-21540a3c2943" />
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="1154" height="459" alt="image" src="https://github.com/user-attachments/assets/34f270b0-e0f5-416a-bfa9-d2d02320c5d3" />
+
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT 
+    c.cust_name, 
+    c.city AS city, 
+    c.grade, 
+    s.name AS Salesman, 
+    s.city AS city
+FROM 
+    customer c
+LEFT JOIN 
+    salesman s 
+ON 
+    c.salesman_id = s.salesman_id
+ORDER BY 
+    c.customer_id ASC;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1202" height="657" alt="image" src="https://github.com/user-attachments/assets/66d38639-114a-4ff6-877b-1207556f5d45" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="1300" height="435" alt="image" src="https://github.com/user-attachments/assets/4db888e9-c240-40d7-8e19-fb3bd39372bb" />
+
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT 
+    p.admission_date, 
+    s.surgery_date
+FROM 
+    patients p
+INNER JOIN 
+    surgeries s 
+ON 
+    p.patient_id = s.patient_id;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="555" height="368" alt="image" src="https://github.com/user-attachments/assets/5c8382f5-338d-4299-bb08-dab76d201a39" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+<img width="1041" height="464" alt="image" src="https://github.com/user-attachments/assets/3c796be2-59bf-4c26-9287-3fb47a02832e" />
+
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT 
+    c.cust_name AS "Customer Name", 
+    c.city, 
+    s.name AS "Salesman", 
+    s.commission
+FROM 
+    customer c
+JOIN 
+    salesman s 
+ON 
+    c.salesman_id = s.salesman_id;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1037" height="660" alt="image" src="https://github.com/user-attachments/assets/7ccef3c1-ce9c-4c0e-ac79-a12f3c84e438" />
 
 
 ## RESULT
